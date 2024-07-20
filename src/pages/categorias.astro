@@ -1,0 +1,18 @@
+---
+import Category from "../components/astro/Category.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout>
+    <div
+        class='flex flex-col justify-center items-start w-100 border-gray-200 dark:border-gray-700 mx-auto pb-16'>
+        <div class='grid w-[100%] grid-cols-1 gap-8 my-2 mt-4 sm:grid-cols-2 mb-8'>
+
+            <Category title="Contexto Histórico" description="descripcion..." link=`/categorias/contexto` />
+            <Category title="Heroes Nacionales" description="descripcion..." link="/categorias/heroes" />
+            <Category title="Crisis y Conflictos Políticos" description="descripcion..." link="/categorias/crisis" />
+            <Category title="Revolución del Canal" description="descripcion..." link="/categorias/canal" />
+
+        </div>
+    </div>
+</MainLayout>
