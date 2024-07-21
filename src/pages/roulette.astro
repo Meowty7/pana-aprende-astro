@@ -1,16 +1,11 @@
 ---
+import RouletteWheel from "../components/RouletteWheel";
 import MainLayout from "../layouts/MainLayout.astro";
 
 ---
 
 <MainLayout>
     
-    <div class="flex-col grid justify-center">
-        <canvas id="canvas" width="500" height="500"></canvas>
-        <button id="spin" class="bg-blue-500 font-mono float:left rounded p-2 mb-4">
-            GIRA LA RULETA
-        </button>
-    </div>
-    <script  src="../assets/roulette.js"></script>
+    <RouletteWheel client:only='react' />
 
 </MainLayout>
