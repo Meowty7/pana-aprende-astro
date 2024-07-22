@@ -16,6 +16,8 @@ export async function getStaticPaths() {
 
 const { categorias } = Astro.props;
 const { Content } = await categorias.render();
+export const prerender = true;
+
 ---
 
 <MainLayout

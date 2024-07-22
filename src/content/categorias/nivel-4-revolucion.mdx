@@ -2,9 +2,104 @@
 title: Revolucion del Canal
 slug: revolucion
 description: Nivel 4 - Revolución del Canal, todo lo que no se ha contemplado en el marco histórico  de las categorías anteriores
+level: 4
 date: 2022-10-29
 image: hackthebox-awkward-writeup.webp
+questions:
+    [
+    {
+        question: "¿Cuándo se completó la construcción del Canal de Panamá?",
+        options: [
+        { text: "1880", "isCorrect": false },
+        { text: "1904", "isCorrect": false },
+        { text: "1914", "isCorrect": true },
+        { text: "1977", "isCorrect": false }
+        ]
+    },
+    {
+        question: "¿Quién lideró el proyecto francés para la construcción del canal en la década de 1880?",
+        options: [
+        { text: "Ferdinand de Lesseps", "isCorrect": true },
+        { text: "Jimmy Carter", "isCorrect": false },
+        { text: "Omar Torrijos", "isCorrect": false },
+        { text: "Vasco Núñez de Balboa", "isCorrect": false }
+        ]
+    },
+    {
+        question: "¿Qué tratados otorgaron a los Estados Unidos derechos exclusivos sobre la Zona del Canal en 1903?",
+        options: [
+        { text: "Tratados Torrijos-Carter", "isCorrect": false },
+        { text: "Tratados Hay-Herrán", "isCorrect": false },
+        { text: "Acuerdos Hay-Bunau-Varilla", "isCorrect": true },
+        { text: "Acuerdos de Soberanía de 1999", "isCorrect": false }
+        ]
+    },
+    {
+        question: "¿Qué evento provocó la crisis del 9 de enero de 1964 en la Zona del Canal de Panamá?",
+        options: [
+        { text: "Inauguración del canal", "isCorrect": false },
+        { text: "Protestas estudiantiles", "isCorrect": true },
+        { text: "Terremoto", "isCorrect": false },
+        { text: "Guerra civil", "isCorrect": false }
+        ]
+    },
+    {
+        question: "¿Quiénes firmaron los Tratados Torrijos-Carter en 1977?",
+        options: [
+        { text: "Ferdinand de Lesseps y Omar Torrijos", "isCorrect": false },
+        { text: "Jimmy Carter y Vasco Núñez de Balboa", "isCorrect": false },
+        { text: "Omar Torrijos y Jimmy Carter", "isCorrect": true },
+        { text: "Mireya Moscoso y George Bush", "isCorrect": false }
+        ]
+    },
+    {
+        question: "¿Cuándo fue transferida la soberanía total del Canal de Panamá a Panamá?",
+        options: [
+        { text: "1903", "isCorrect": false },
+        { text: "1964", "isCorrect": false },
+        { text: "1977", "isCorrect": false },
+        { text: "1999", "isCorrect": true }
+        ]
+    },
+    {
+        question: "¿Qué impacto tuvo la crisis del 9 de enero de 1964 en las relaciones entre Panamá y los Estados Unidos?",
+        options: [
+        { text: "Fortaleció las relaciones", "isCorrect": false },
+        { text: "No tuvo impacto", "isCorrect": false },
+        { text: "Generó tensiones adicionales", "isCorrect": true },
+        { text: "Condujo a la expansión del canal", "isCorrect": false }
+        ]
+    },
+    {
+        question: "¿Qué evento histórico marcó el inicio de la administración panameña del Canal de Panamá?",
+        options: [
+        { text: "La construcción del canal en 1904", "isCorrect": false },
+        { text: "La firma de los Tratados Torrijos-Carter en 1977", "isCorrect": false },
+        { text: "La crisis del 9 de enero de 1964", "isCorrect": false },
+        { text: "La transferencia de soberanía en 1999", "isCorrect": true }
+        ]
+    },
+    {
+        question: "¿Qué logro significativo se completó en 2016 en relación con el Canal de Panamá?",
+        options: [
+        { text: "Inauguración de nuevas esclusas", "isCorrect": true },
+        { text: "Transferencia de soberanía", "isCorrect": false },
+        { text: "Firma de acuerdos económicos", "isCorrect": false },
+        { text: "Construcción de un segundo canal", "isCorrect": false }
+        ]
+    },
+    {
+        question: "¿Qué papel ha desempeñado el Canal de Panamá en el comercio internacional?",
+        options: [
+        { text: "Ha aumentado los costos de transporte", "isCorrect": false },
+        { text: "Ha reducido la capacidad de carga de los buques", "isCorrect": false },
+        { text: "Ha facilitado el tránsito entre los océanos Atlántico y Pacífico", "isCorrect": true },
+        { text: "Ha limitado la expansión económica de Panamá", "isCorrect": false }
+        ]
+    }
+    ]
 ---
+export const prerender = true
 
 ## La Historia del Canal de Panamá
 
@@ -42,3 +137,7 @@ La historia del Canal de Panamá es fascinante y está llena de eventos clave qu
     - El canal continúa siendo un activo estratégico para Panamá, adaptándose a las demandas del comercio global y explorando iniciativas para mantener su relevancia económica y operativa.
 
 En resumen, el Canal de Panamá representa una maravilla de la ingeniería que ha transformado el comercio internacional y ha sido testigo de una historia rica en desafíos, negociaciones diplomáticas y el tránsito hacia la soberanía total panameña.
+
+import MyComponent from "../../components/Test.jsx";
+
+<MyComponent level={4} client:only="react" />

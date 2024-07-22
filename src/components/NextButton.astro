@@ -1,8 +1,12 @@
 ---
+const { level } = Astro.props
+const query = new URLSearchParams(window.location.search);
+const id = query.get('userId');
+
 ---
 
-<a href="/roulette" class="next-link">
-    JUGAR
+<a href={`/roulette/${level}`} class="next-link ">
+    JUGAR 
 </a>
 
 <style>

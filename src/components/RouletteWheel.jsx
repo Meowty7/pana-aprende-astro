@@ -1,9 +1,7 @@
 import {useEffect, useRef, useState} from 'react';
 
-// Define the options for the roulette wheel
-const options = ["pregunta1", "pregunta2", "pregunta3", "pregunta4", "pregunta5"];
+const RouletteWheel = ({options, onNumberSelected}) => {
 
-const RouletteWheel = () => {
     const canvasRef = useRef(null);
     const [spinning, setSpinning] = useState(false);
 
@@ -80,7 +78,8 @@ const RouletteWheel = () => {
 
                     ctx.rotate(angle + arc / 2 + Math.PI / 2);
                     const text = options[i];
-                    ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
+                    ctx.font = 'bold 2rem Roboto, Arial';
+                    ctx.fillText(text, -ctx.measureText(text).width / 5, 10);
                     ctx.restore();
                 }
 
@@ -122,6 +121,7 @@ const RouletteWheel = () => {
         }
 
         drawRouvarteWheel()
+        
         if(spinning){
             spin()
             setSpinning(false)
@@ -133,8 +133,10 @@ const RouletteWheel = () => {
             const arcd = arc * 180 / Math.PI;
             const index = Math.floor((360 - degrees % 360) / arcd);
             ctx.save();
-            ctx.font = "bold 30px Helvetica, Arial";
+            ctx.font = "bold 4rem Helvetica, Arial";
+            ctx.fillStyle = "white";
             const text = options[index];
+            onNumberSelected(text)
             ctx.fillText(text, 250 - ctx.measureText(text).width / 2, 250 + 10);
             ctx.restore();
         }
@@ -152,32 +154,11 @@ const RouletteWheel = () => {
 
     return (
         <>
-            <div className="flex items-center justify-center">
-                <div className="grid grid-cols-1 ">
-                    <canvas ref={canvasRef} width="500" height="500"></canvas>
-                    <button onClick={handleClick} className="bg-blue-500 font-mono float:left rounded p-2 mb-4">
-                        GIRA LA RULETA
-                    </button>
-                </div>
-
-                <div className="ml-8 p-6 bg-gray-100 rounded-lg shadow-md">
-                    <h2 className="text-xl font-semibold mb-4">Questions</h2>
-                    <div className="space-y-4">
-                        <div className="p-4 bg-white rounded-lg shadow-sm border border-gray-200">
-                            <h3 className="text-lg font-medium">Question 1:</h3>
-                            <p className="text-gray-700">What is the capital of France?</p>
-                        </div>
-                        <div className="p-4 bg-white rounded-lg shadow-sm border border-gray-200">
-                            <h3 className="text-lg font-medium">Question 2:</h3>
-                            <p className="text-gray-700">Who wrote "To Kill a Mockingbird"?</p>
-                        </div>
-                        <div className="p-4 bg-white rounded-lg shadow-sm border border-gray-200">
-                            <h3 className="text-lg font-medium">Question 3:</h3>
-                            <p className="text-gray-700">What is the smallest planet in our solar system?</p>
-                        </div>
-                    </div>
-                </div>
-
+            <div className=" flex flex-col \">
+                <button onClick={handleClick} className="bg-blue-500 font-mono rounded p-2 mb-4">
+                    GIRA LA RULETA
+                </button>
+                <canvas ref={canvasRef} width="500" height="500"></canvas>
             </div>
         </>
     );

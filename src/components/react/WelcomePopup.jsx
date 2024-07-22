@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import '/src/styles/welcome.popup.css';
 
-export default function WelcomePopup() {
+export default function WelcomePopup({username}) {
     const [show, setShow] = useState(true);
     const [fadeOut, setFadeOut] = useState(false);
 
@@ -27,7 +27,7 @@ export default function WelcomePopup() {
                     Cerrar
                 </button>
                 <p>
-                    <strong>Bienvenido a PanaAprende!</strong> <br/>
+                    <strong>Bienvenido a PanaAprende <span className="text-red-500">{username}</span>!</strong> <br/>
                     Explora la historia de Panamá y descubre cómo su
                     pasado ha moldeado su presente. <br/>
                     En este juego educativo podrás:<br/><br/>

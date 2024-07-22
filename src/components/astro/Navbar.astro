@@ -3,6 +3,7 @@ import { cn } from '../../lib/utils.ts';
 import MobileMenu from '../react/MobileMenu';
 import ThemeSwitcher from '../react/ThemeSwitcher';
 import navLinks from '../navLinks.json';
+import LogoutButton from '../LogoutButton';
 
 const currentPath = Astro.url.pathname;
 ---
@@ -30,6 +31,11 @@ const currentPath = Astro.url.pathname;
                 );
             })
         }
+        
     </div>
-    <ThemeSwitcher client:only='react' />
+    
+    <div class="flex items-center gap-4">
+        <ThemeSwitcher client:only='react' />
+        <LogoutButton client:only='react' />
+    </div>
 </nav>
