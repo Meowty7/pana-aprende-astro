@@ -3,7 +3,6 @@
 import { getCollection } from 'astro:content';
 import MainLayout from '../../layouts/MainLayout.astro';
 import SelectedNumber from '../../components/SelectedNumber';
-import ClientOnlyComponent from '../../components/ClientComponent';
 
 export async function getStaticPaths() {
     const blogsEntries = await getCollection('categorias');
@@ -22,10 +21,6 @@ const options = Array.from({ length: numberofquestions }, (_, i) => i +1);
 
 export const prerender = true
 
-let userId = '';
-
-console.log(userId)
-
 ---
 
 <MainLayout>
@@ -35,7 +30,7 @@ console.log(userId)
             <p class="text-gray-700" id="user-id">Loading...</p>
         </div>
        
-       <SelectedNumber userId={"ocybldn85ddsi4w"} option={options} questions={questions} client:only="react" />
+       <SelectedNumber option={options} questions={questions} client:only="react" />
        
         <div class="p-4 mb-4 w-[500px] break-words bg-white rounded-lg shadow-sm border-gray-200">
             
@@ -49,12 +44,3 @@ console.log(userId)
     </div>
 </MainLayout>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const query = new URLSearchParams(window.location.search);
-        const userId = query.get('userId') || 'No User ID Found';
-        let uid = document.getElementById('user-id') as HTMLParagraphElement
-        uid.textContent = `UserID: ${userId}`;
-        // Optionally, update state or trigger re-render here if needed
-    });
-</script>

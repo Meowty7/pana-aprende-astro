@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import RouletteWheel from './RouletteWheel';
 import { db } from '../firebase-config.js'; // Adjust the import path to your Firestore setup
 import { doc, setDoc, updateDoc, getDoc } from 'firebase/firestore';
 import '../styles/popup.css';
 
-const SelectedNumber = ({ option, questions, userId }) => {
+const SelectedNumber = ({ option, questions }) => {
   const [selectedNumber, setSelectedNumber] = useState(null);
   const [selectedOption, setSelectedOption] = useState('');
   const [feedback, setFeedback] = useState('');
+
+  const [userId, setUserId] = useState('No User ID Found');
+
+  useEffect(() => {
+      const query = new URLSearchParams(window.location.search);
+      const userIdFromQuery = query.get('userId') || 'No User ID Found';
+      setUserId(userIdFromQuery);
+  }, []);
+
 
   const handleNumberSelected = (number) => {
     setSelectedNumber(number);
@@ -53,7 +62,10 @@ const SelectedNumber = ({ option, questions, userId }) => {
       }
 
       setFeedback(isCorrect ? '¡Correcto!' : 'Incorrecto, intenta de nuevo.');
-      window.location.href = '/';
+      setTimeout(() => {
+        window.location.href = '/categorias';
+      }, 3000)
+      
     } catch (error) {
       console.error('Error updating score:', error);
       setFeedback('An error occurred while updating the score.');
