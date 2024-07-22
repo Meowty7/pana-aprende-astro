@@ -9,8 +9,6 @@ if (!user) {
 	return Astro.redirect("/login");
 }
 
-const categoriasUrl = `/categorias?userId=${user.id}`;
-
 ---
 
 <MainLayout title="PanaAprende">
